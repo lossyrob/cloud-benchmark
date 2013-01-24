@@ -1,0 +1,124 @@
+usace-instance-storage: (g=0): rw=read, bs=256K-256K/256K-256K, ioengine=libaio, iodepth=4
+usace-standard-single: (g=0): rw=read, bs=256K-256K/256K-256K, ioengine=libaio, iodepth=4
+usace-provisioned-single: (g=0): rw=read, bs=256K-256K/256K-256K, ioengine=libaio, iodepth=4
+usace-provisioned-raid: (g=0): rw=read, bs=256K-256K/256K-256K, ioengine=libaio, iodepth=4
+usace-standard-raid: (g=0): rw=read, bs=256K-256K/256K-256K, ioengine=libaio, iodepth=4
+fio 1.59
+Starting 5 processes
+
+usace-instance-storage: (groupid=0, jobs=1): err= 0: pid=32152
+  Description  : [IO benchmark for simulating USACE IO performance on instance storage.]
+  read : io=119040KB, bw=78316KB/s, iops=305 , runt=  1520msec
+    slat (usec): min=323 , max=230562 , avg=3203.14, stdev=10823.05
+    clat (usec): min=9 , max=252175 , avg=9498.99, stdev=19688.09
+     lat (msec): min=2 , max=255 , avg=12.71, stdev=23.30
+    bw (KB/s) : min=16795, max=108327, per=39.69%, avg=77718.00, stdev=52761.07
+  cpu          : usr=0.00%, sys=8.95%, ctx=1299, majf=0, minf=280
+  IO depths    : 1=0.2%, 2=0.4%, 4=99.4%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued r/w/d: total=465/0/0, short=0/0/0
+     lat (usec): 10=0.22%
+     lat (msec): 4=0.22%, 10=89.89%, 20=5.81%, 50=3.01%, 100=0.22%
+     lat (msec): 250=0.43%, 500=0.22%
+usace-standard-single: (groupid=0, jobs=1): err= 0: pid=32153
+  Description  : [IO benchmark for simulating USACE IO performance on single standard EBS volume.]
+  read : io=119040KB, bw=62097KB/s, iops=242 , runt=  1917msec
+    slat (usec): min=269 , max=205364 , avg=4073.56, stdev=13729.62
+    clat (usec): min=9 , max=213513 , avg=12174.09, stdev=24331.59
+     lat (msec): min=2 , max=217 , avg=16.25, stdev=28.36
+    bw (KB/s) : min=37059, max=95552, per=33.02%, avg=64649.67, stdev=29386.78
+  cpu          : usr=0.21%, sys=6.89%, ctx=1330, majf=0, minf=281
+  IO depths    : 1=0.2%, 2=0.4%, 4=99.4%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued r/w/d: total=465/0/0, short=0/0/0
+     lat (usec): 10=0.22%
+     lat (msec): 4=0.22%, 10=87.31%, 20=5.38%, 50=4.09%, 100=1.51%
+     lat (msec): 250=1.29%
+usace-provisioned-single: (groupid=0, jobs=1): err= 0: pid=32154
+  Description  : [IO benchmark for simulating USACE IO performance on single provisioned EBS volume.]
+  read : io=119040KB, bw=39158KB/s, iops=152 , runt=  3040msec
+    slat (usec): min=315 , max=222475 , avg=6487.66, stdev=10512.19
+    clat (usec): min=9 , max=230120 , avg=19473.77, stdev=17853.40
+     lat (msec): min=5 , max=234 , avg=25.97, stdev=20.34
+    bw (KB/s) : min=24975, max=45386, per=19.84%, avg=38846.00, stdev=8007.20
+  cpu          : usr=0.00%, sys=3.95%, ctx=1371, majf=0, minf=280
+  IO depths    : 1=0.2%, 2=0.4%, 4=99.4%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued r/w/d: total=465/0/0, short=0/0/0
+     lat (usec): 10=0.22%
+     lat (msec): 4=0.43%, 10=5.81%, 20=88.82%, 50=3.44%, 100=0.65%
+     lat (msec): 250=0.65%
+usace-provisioned-raid: (groupid=0, jobs=1): err= 0: pid=32155
+  Description  : [IO benchmark for simulating USACE IO performance on 16 provisioned EBS volumes in RAID 0.]
+  read : io=119040KB, bw=214874KB/s, iops=839 , runt=   554msec
+    slat (usec): min=73 , max=200251 , avg=1110.28, stdev=9701.58
+    clat (usec): min=8 , max=201714 , avg=3255.19, stdev=16775.89
+     lat (usec): min=90 , max=219377 , avg=4367.76, stdev=19775.23
+    bw (KB/s) : min=159492, max=159492, per=81.46%, avg=159492.00, stdev= 0.00
+  cpu          : usr=0.00%, sys=28.21%, ctx=48, majf=0, minf=280
+  IO depths    : 1=0.2%, 2=0.4%, 4=99.4%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued r/w/d: total=465/0/0, short=0/0/0
+     lat (usec): 10=0.22%, 100=0.22%, 250=0.22%, 500=49.25%, 750=32.47%
+     lat (usec): 1000=2.15%
+     lat (msec): 2=1.94%, 4=2.58%, 10=5.59%, 20=2.37%, 50=2.37%
+     lat (msec): 250=0.65%
+usace-standard-raid: (groupid=0, jobs=1): err= 0: pid=32156
+  Description  : [IO benchmark for simulating USACE IO performance on 16 standard EBS volumes in RAID 0.]
+  read : io=119040KB, bw=331588KB/s, iops=1295 , runt=   359msec
+    slat (usec): min=68 , max=28065 , avg=720.41, stdev=2648.33
+    clat (usec): min=8 , max=31784 , avg=2114.52, stdev=4954.08
+     lat (usec): min=118 , max=32024 , avg=2837.05, stdev=5745.10
+  cpu          : usr=0.00%, sys=42.46%, ctx=47, majf=0, minf=282
+  IO depths    : 1=0.2%, 2=0.4%, 4=99.4%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued r/w/d: total=465/0/0, short=0/0/0
+     lat (usec): 10=0.22%, 250=0.43%, 500=55.27%, 750=27.53%, 1000=0.86%
+     lat (msec): 4=3.01%, 10=7.74%, 20=2.58%, 50=2.37%
+
+Run status group 0 (all jobs):
+   READ: io=595200KB, aggrb=195789KB/s, minb=40097KB/s, maxb=339545KB/s, mint=359msec, maxt=3040msec
+
+Disk stats (read/write):
+  xvda1: ios=2276/0, merge=0/0, ticks=12616/0, in_queue=12632, util=85.12%
+  xvdf1: ios=2610/0, merge=0/0, ticks=16504/0, in_queue=18448, util=89.98%
+  xvdf2: ios=2568/0, merge=0/0, ticks=28244/0, in_queue=28316, util=93.95%
+  md0: ios=2804/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%, aggrios=175/0, aggrmerge=0/0, aggrticks=5220/0, aggrin_queue=5219, aggrutil=13.42%
+    xvdh1: ios=180/0, merge=0/0, ticks=5288/0, in_queue=5288, util=8.15%
+    xvdg1: ios=178/0, merge=0/0, ticks=4256/0, in_queue=4252, util=7.15%
+    xvdg2: ios=174/0, merge=0/0, ticks=15468/0, in_queue=15468, util=12.91%
+    xvdg3: ios=174/0, merge=0/0, ticks=4316/0, in_queue=4316, util=6.77%
+    xvdg4: ios=175/0, merge=0/0, ticks=2564/0, in_queue=2560, util=5.14%
+    xvdg5: ios=174/0, merge=0/0, ticks=2900/0, in_queue=2896, util=4.89%
+    xvdg6: ios=174/0, merge=0/0, ticks=4644/0, in_queue=4644, util=7.65%
+    xvdg7: ios=174/0, merge=0/0, ticks=3936/0, in_queue=3936, util=7.40%
+    xvdg8: ios=174/0, merge=0/0, ticks=3624/0, in_queue=3624, util=6.14%
+    xvdg9: ios=174/0, merge=0/0, ticks=6608/0, in_queue=6608, util=13.42%
+    xvdg10: ios=174/0, merge=0/0, ticks=6108/0, in_queue=6108, util=9.66%
+    xvdg11: ios=174/0, merge=0/0, ticks=5248/0, in_queue=5248, util=7.52%
+    xvdg12: ios=181/0, merge=2/0, ticks=4544/0, in_queue=4540, util=7.77%
+    xvdg13: ios=174/0, merge=0/0, ticks=4800/0, in_queue=4800, util=12.91%
+    xvdg14: ios=174/0, merge=0/0, ticks=4412/0, in_queue=4412, util=7.15%
+    xvdg15: ios=174/0, merge=0/0, ticks=4816/0, in_queue=4816, util=6.77%
+  md1: ios=2289/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%, aggrios=175/0, aggrmerge=0/0, aggrticks=4100/0, aggrin_queue=4100, aggrutil=9.64%
+    xvdj1: ios=180/0, merge=0/0, ticks=7828/0, in_queue=7828, util=9.13%
+    xvdi1: ios=178/0, merge=0/0, ticks=2844/0, in_queue=2844, util=6.47%
+    xvdi2: ios=174/0, merge=0/0, ticks=6860/0, in_queue=6860, util=9.13%
+    xvdi3: ios=174/0, merge=0/0, ticks=3876/0, in_queue=3876, util=7.86%
+    xvdi4: ios=175/0, merge=0/0, ticks=2296/0, in_queue=2292, util=5.83%
+    xvdi5: ios=174/0, merge=0/0, ticks=2832/0, in_queue=2832, util=6.21%
+    xvdi6: ios=174/0, merge=0/0, ticks=2480/0, in_queue=2480, util=6.21%
+    xvdi7: ios=174/0, merge=0/0, ticks=2980/0, in_queue=2980, util=6.34%
+    xvdi8: ios=174/0, merge=0/0, ticks=3016/0, in_queue=3016, util=6.47%
+    xvdi9: ios=174/0, merge=0/0, ticks=3820/0, in_queue=3820, util=7.74%
+    xvdi10: ios=174/0, merge=0/0, ticks=3048/0, in_queue=3048, util=6.09%
+    xvdi11: ios=174/0, merge=0/0, ticks=5076/0, in_queue=5076, util=7.61%
+    xvdi12: ios=183/0, merge=0/0, ticks=4444/0, in_queue=4444, util=7.48%
+    xvdi13: ios=174/0, merge=0/0, ticks=7572/0, in_queue=7572, util=9.64%
+    xvdi14: ios=174/0, merge=0/0, ticks=3280/0, in_queue=3280, util=7.10%
+    xvdi15: ios=174/0, merge=0/0, ticks=3352/0, in_queue=3352, util=6.47%
